@@ -1,0 +1,47 @@
+<script>
+    var d = new Date();
+    document.write("new date():" + d);
+    document.write("<br>");
+    document.write("分别获取年月日");
+    document.write(d.getFullYear());
+    document.write("/");
+    document.write(d.getMonth() + 1);//js里面getMonth得到的月份是基0的，要+1
+    document.write("/");
+    document.write(d.getDate());
+
+    document.write("<br>");
+    document.write("分别获取时分秒");
+    document.write(d.getHours());
+    document.write(":");
+    document.write(d.getMinutes());
+    document.write(":");
+    document.write(d.getSeconds());
+    document.write("/");
+    document.write(d.getMilliseconds());
+
+    document.write("<br>");
+    document.write("获得日期是一周的第几天——");
+    var day = new Date().getDay();////通过日期对象获取数字形式的星期几
+    //通过getDay()获取，今天是本周的第几天,与getMonth()一样，返回值是基0的。
+    var weeks = new Array("星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六");
+    document.write("今天是：" + weeks[day]);
+
+
+    document.write("<br>");
+    var time = new Date().getTime();
+    document.write("从1970/1/1 08:00:00 到今天的毫秒数： " + time);
+
+    document.write("<br>");
+    var d = new Date();
+    document.write("修改日期对象的值为世界末日:<br>");
+    d.setFullYear(2012);
+    d.setMonth(11); //月份时基0的，所以11表示12月
+    d.setDate(12);
+
+    d.setHours(0);
+    d.setMinutes(0);
+    d.setSeconds(0);
+
+    document.write(d);
+
+</script>
