@@ -1,0 +1,38 @@
+<!-- 示例 1 : 函数
+function关键字用于定义一个函数
+print即函数的名称
+()表示参数列表，像这样就指没有参数
+{ 表示函数开始
+} 表示函数结束
+光有函数的定义，还不够，它不会自动执行，还需要进行调用 -->
+<script>
+    function print(){
+        document.write("print函数执行");
+        document.write("<br>");
+    }
+    print();//这里要调用上面定义的函数才会执行
+</script>
+<br>
+
+<!-- 示例 2 : 带参数的函数 -->
+<script>
+    // funciton print1(String msg)//不能这样写
+    function print1(msg){
+        document.write(msg);
+    }
+    print1("第一句话");
+    document.write("<br>");
+    print1("第二句话");
+    document.write("<br>");
+</script>
+
+<!-- 示例 3 : 带返回值的函数
+    自定义一个calc函数，用于计算两个参数的和，并通过return 返回计算结果 -->
+<script>
+    // function int calc(num1,num2){//不能这样写
+    function calc(num1,num2){
+        return num1+num2;
+    }
+    document.write("1+2的结果等于"+calc(1,2));
+    document.write("<br>");
+</script>

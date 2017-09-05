@@ -1,0 +1,29 @@
+<!-- javascript代码必须放在script标签中 
+script标签可以放在html的任何地方，一般建议放在head标签里 -->
+
+<!-- 示例 1 : script标签
+javascript都是放在script标签中的，一旦加载，就会执行 -->
+<html> 
+    <head>
+        <script>
+            document.write("这是javascript输出到文档的文字");
+        </script>
+    </head>
+</html>
+<!-- 示例 2 : javascript顺序执行
+如果有多段script代码，会按照从上到下，顺序执行 -->
+<br>
+<script>
+    document.write("第一段javascript");
+</script>
+<script>
+    document.write("第二段javascript");
+</script>
+<!-- 示例 3 : 使用外部js文件
+和css一样，当javascript代码特别多，并且都写在html里的时候，会显得比较繁杂，难以维护。 
+这个时候可以采用和css一样的手段，把javascript代码剥离出来，单独放在一个文件里，在html中引用该文件即可。 
+准备一个hello.js，里面的是内容是 
+document.write("hello javascript "); 
+注意，不要写 script标签 -->
+<br>
+<script src="hello.js"></script>

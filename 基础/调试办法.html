@@ -1,0 +1,57 @@
+<!-- 步骤 1 : alert进行调试
+使用alert(1)进行调试，这是最开始的时候非常常用的一种手法来进行javascript代码调试，即使今天，也是比较有效的一种方式。
+使用alert的思路：
+ 
+alert(1)
+ 
+
+会弹出一个对话框，里面的内容是1。换句话说，如果弹出了1,这个位置以上的代码，都是可以运行的。
+你不停的把alert(1)向下移动，当移动到某一行之后，就不再弹出，那么就证明那一行运行有问题。 这样就把问题的范围缩小了，就很容易通过肉眼观察法来定位真正问题所在。
+运行效果
+
+<script>
+  x = 10;
+  //alert(1);
+  document.write("没有用var声明的变量x的值:"+x);
+  //alert(2);
+</script>
+
+
+ 步骤 2 : 使用专业的调试工具
+不同的浏览器有不同的调试办法，本文以firefox为例来讲解如何调试
+
+ 步骤 3 : 下载firefox
+下载firefox 49.0，直接解压就可以使用了。
+
+ 步骤 4 : 使用firefox 的调试功能
+这里准备了一段故意写错的javascript代码。 
+点击快捷键F12，就会出现console页面。 
+
+console是控制台的意思，用于输出一些错误和调试信息。
+
+注意： 虽然这段javascript代码有错误，但是第一次F12是看不到错误的，因为错误已经发生了，才打开了F12。 所以打开了F12之后，使用快捷键F5刷新一下当前页面，就可以看到控制台报出了错误的原因
+document.write1 is not a function 
+这样定位问题就非常方便了。 -->
+<script>
+    x=10;
+    alert("调试");
+    //document.write1("这是一段故意写错write方法的javascript代码");
+</script>
+
+<!-- 步骤 5 : console.log()
+类似于 alert进行调试， firebug有一个日志输出工具console.log().
+不同于alert的缺点( 弹出屏幕，阻挡所有其他操作)，console.log() 只会把信息输出在console里，而不会影响用户的使用。 用户甚至意识不到console.log()的存在。
+运行效果
+
+<script>
+  x = 10;
+  console.log("x="+x);
+  document.write("没有用var声明的变量x的值:"+x);
+  console.log("end");
+</script> -->
+<script>
+    x=24;
+    console.log("x="+x)
+    document.write("没有用var声明的变量x的值="+x);
+    console.log("调试结束");
+</script>

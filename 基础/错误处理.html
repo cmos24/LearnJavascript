@@ -1,0 +1,23 @@
+<!-- JavaScript提供了一种try catch的错误处理机制，当有错误抛出的时候，可以catch住。 -->
+<!-- 对f2()调用进行try catch的处理。 捕捉到了该方法未定义的错误。并打印出来。
+后续的代码，也就可以继续执行了。 -->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<script>
+    function f1() {
+        //函数1存在
+    }
+    //function f2(){}//函数2不存在
+
+    try {
+        f1();
+        f2();
+    } catch (err) {
+        console.log(err);
+    }
+    document.write("因为上面的错误被捕抓了所以后续的代码可以继续运行");
+
+</script>
