@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!--
+		关键字					简介
+		document.getElementById	通过id获取元素节点
+		getElementsByTagName	通过标签名称获取元素节点
+		getElementsByClassName	通过类名获取元素节点
+		getElementsByName		通过表单元素的name获取元素节点
+		null					为什么会获取不到?
+		attributes				获取属性节点
+		childNodes				获取内容节点
+		-->
+		
+		
+		<!--示例 1 : 通过id获取元素节点
+		在设计html的时候，一个元素对应的id应该是唯一的。 
+		可以通过document.getElementById 获取某个元素对应的元素节点对象-->
+		<div id="d1">
+			hello HTML DOM
+		</div>
+		<script type="text/javascript">
+			var div1=document.getElementById("d1");
+			document.write(div1);
+		</script>
+		
+		<!--示例 2 : 通过标签名称获取元素节点
+		所有的元素都有标签名 
+		通过 getElementsByTagName 根据标签名称获取一个元素数组。-->
+		<div >hello javascript</div>
+		<div >hello BOM</div>
+		<div >hello DOM</div>
+		<br />
+		<script>
+			var divs=document.getElementsByTagName("div");
+			for(var i=0;i<divs.length;i++){
+				document.write(divs[i]);
+				document.write("<br />");
+			}
+		</script>
+		
+		
+		<!--示例 3 : 通过类名获取元素节点
+		与 getElementsByTagName 类似的，也可以通过 getElementsByClassName 根据class返回一个节点数组-->
+		<h1  class="d" >hello javascript</h1>
+		<h2  class="d" >hello BOM</h2>
+		<div  class="d" >hello DOM</div>
+		<br>
+		<script>
+		var  elements= document.getElementsByClassName("d");
+		 
+		for(i=0;i<elements.length;i++){
+		  document.write(elements[i]);
+		  document.write("<br>");
+		}
+		
+		</script>
+		<!--示例 4 : 通过表单元素的name获取元素节点 
+		表单元素都有name属性，通过getElementsByName可以根据name属性的值，获取元素节点。-->
+		用户名<input type="text" name="userName"/><br />
+		密码<input type="password" name="userPassword"/>
+		<br />
+		<script type="text/javascript">
+			var es=document.getElementsByName("userName");
+			for(var i=0;i<es.length;i++){
+				document.write(es[i]);
+				document.write("<br />");
+			}
+		</script>
+		
+		<!--示例 5 : 为什么会获取不到?
+		参考本例代码，和通过id获取元素节点同样的代码 document.getElementById却无法获取元素节点。 
+		这是因为javascript是解释语言，是顺序执行的。 在执行到 document.getElementById的时候，div标签还没有加载，所以无法获取-->
+		<script>
+		//var  div2 = document.getElementById("d2");
+		//document.write(div2);
+		</script>
+		</html>
+		 
+		<div id="d2">hello HTML DOM</div>
+
+		<!--示例 6 : 获取属性节点
+		首先通过getElementById获取元素节点，然后通过元素节点的attributes获取其下所有的属性节点。
+		因为属性节点是多个，所以是以数组的形式返回出来的，接着通过for循环遍历，查看每个节点的nodeName和nodeValue
+		如果要获取一个指定属性的值，可以采用如下风格，as表示所有的属性，as["id"]取出名称是id的属性
+		 
+		as["id"].nodeValue
+		 
+		
+		注: nodeName和nodeValue表示一个节点的名称和值，详见下一步的学习节点的属性-->
+		
+		<div id="d3" class="c3" align="center">
+			DOM TEST
+		</div>
+		<script type="text/javascript">
+			var div3=document.getElementById("d3");
+			var as=div3.attributes;
+			document.write("<br />");
+//			var as=div3.getAttribute();不能这样写
+			document.write("div总共有"+as.length +" 个属性");
+			document.write("分别是:");
+
+			for(var i=0;i<as.length;i++){
+				document.write("<br />");
+				document.write(as[i].nodeName);
+				document.write(":");
+				document.write(as[i].nodeValue);
+			}
+			
+			document.write("<br>");
+			document.write("div的id属性值是："+ as["id"].nodeValue);
+		</script>
+		
+		<!--示例 7 : 获取内容节点
+		首先通过document.getElementById获取元素节点，然后通过childNodes获取其所有的子节点。 其中第一个子节点，就是其内容节点。
+		然后借助nodeName和nodeValue把内容节点的名称和值打印出来。
+		注: nodeName和nodeValue表示一个节点的名称和值，详见下一步的学习节点的属性-->
+		
+		<div id="d4" align="center" class="abc">hello HTML DOM</div>
+		<script>
+		var  div4 = document.getElementById("d4");
+		var content = div4.childNodes[0];
+		document.write("div的内容节点名是:"+content.nodeName);
+		document.write("<br>");
+		document.write("div的内容节点值是:"+content.nodeValue);
+		</script>
+		
+		
+	</body>
+</html>

@@ -1,0 +1,215 @@
+<!--DOM的事件有很多，下表把工作中常用的事件列出来，并进行讲解-->
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<!--示例 1 : 焦点事件
+		焦点相关的事件，分别有获取焦点和失去焦点 
+		当组件获取焦点的时候，会触发onfocus事件 
+		当组件失去焦点的时候，会触发onblur事件-->
+		<input type="text" onfocus="f()" onblur="b()" id="input1" placeholder="输入框1" />
+		<br />
+		<br />
+		<input type="text" id="input2" placeholder="输入框2" />
+		<br />
+		<br />
+		<div id="message">
+
+		</div>
+		<script type="text/javascript">
+			function f() {
+				document.getElementById("message").childNodes[0].nodeValue = "输入框1获取了焦点";
+			}
+
+			function b() {
+				document.getElementById("message").innerHTML = "输入框1丢失了焦点";
+			}
+		</script>
+
+		<!--示例 2 : 鼠标事件  
+		鼠标事件，由鼠标按下，鼠标弹起，鼠标经过，鼠标进入，鼠标退出几个事件组成 
+		当在组件上鼠标按下的时候，会触发onmousedown事件 
+		当在组件上鼠标弹起的时候，会触发onmouseup事件 
+		
+		
+		当在组件上鼠标经过的时候，会触发onmousemove事件 
+		当在组件上鼠标进入的时候，会触发onmouseover事件 
+		当在组件上鼠标退出的时候，会触发onmouseout事件 
+		注: 当鼠标进入一个组件的时候，onmousemove和onmouseover都会被触发，区别在于无论鼠标在组件上如何移动，onmouseover只会触发一次，onmousemove每次移动都回触发-->
+
+		<input type="button" onmousedown="down()" onmouseup="up()" value="用于演示按下和弹起">
+		<br>
+		<br>
+
+		<input type="button" onmousemove="move()" value="用于演示鼠标经过">
+		<br>
+		<br>
+
+		<input type="button" onmouseover="over()" value="用于演示鼠标进入">
+		<br>
+		<br>
+
+		<input type="button" onmouseout="out()" value="用于演示鼠标退出">
+
+		<br>
+		<br>
+		<div id="message2"></div>
+
+		<script type="text/javascript">
+			var number1 = 0;
+			var number2 = 0;
+
+			function down() {
+				document.getElementById("message2").innerHTML = "鼠标按下";
+
+			}
+
+			function up() {
+				document.getElementById("message2").innerHTML = "鼠标抬起";
+			}
+
+			function move() {
+				document.getElementById("message2").innerHTML = "鼠标经过次数：" + (++number1); //先增加再显示
+			}
+
+			function over() {
+				document.getElementById("message2").innerHTML = "鼠标进入次数:" + (++number2);
+			}
+
+			function out() {
+				document.getElementById("message2").innerHTML = "鼠标离开";
+				number1 = 0;
+				number2 = 0;
+			}
+		</script>
+
+		<!--示例 3 : 键盘事件  提问
+		键盘事件，由键盘按下keydown，键盘按下keypress,键盘弹起几个事件组成
+		当在组件上键盘按下的时候，会触发onkeydown事件
+		当在组件上键盘按下的时候，也会触发onkeypress事件
+		当在组件上键盘弹起的时候，会触发onkeyup事件
+		注: onkeypress 是当按下并弹起的组合动作，这个说法是错误的
+		都是用于表示键盘按下，onkeydown和onkeypress的区别在什么呢？
+		onkeydown
+		可以获取所有键，除了打印键Prts
+		可以获取用户是否点击了修饰键 (ctrl,shift,alt)
+		不能判断输入的是大写还是小写
+		onkeypress
+		只能获取字符键
+		不能获取用户是否点击了修饰键 (ctrl,shift,alt)
+		可以判断输入的是大写还是小写
+		
+		但是！ 在不同的浏览器上，以上规则是不成立的。说这些都没有卵用，你无法控制用户到底使用哪种浏览器。 所以，只要记得keydown和keypress都表示点下了键。。。即可-->
+
+		“记得要先用鼠标选中该组件，然后敲击键盘”
+		<br>
+		<input type="button" onkeydown="down(event)" value="用于演示按下keydown">
+		<br>
+		<br>
+
+		<input type="button" onkeypress="press(event)" value="用于演示按下keypress">
+		<br>
+		<br>
+
+		<input type="button" onkeyup="up()" value="用于演示弹起">
+		<br>
+		<br>
+
+		<div id="message3">
+
+		</div>
+
+		<script>
+			var number = 0;
+
+			function down(e) {
+
+				var text = "按下了键" + e.keyCode;
+				if(e.shiftKey == 1)
+					text += " 并且按下了shift键";
+
+				document.getElementById("message3").innerHTML = text;
+			}
+
+			function up() {
+				document.getElementById("message3").innerHTML = "弹起了键盘";
+			}
+
+			function press(e) {
+				var text = "按下了键" + e.keyCode;
+				if(e.shiftKey == 1)
+					text += " 并且按下了shift键";
+
+				document.getElementById("message3  ").innerHTML = text;
+			}
+		</script>
+
+
+		<!--示例 4 : 点击事件
+		点击事件，由单击，双击按两个事件组成
+		当在组件上单击的时候，会触发onclick事件
+		当在组件上双击的时候，会触发ondblclick事件
+		注1：在组件上，按下空格或则回车键也可以造成单击的效果，但是却不能造成双击的效果
+		注2: 自定义函数不要使用click()，这是保留函数名。-->
+		<input type="button" onclick="singleClick()" ondblclick="doubleClick()" value="用于演示和单击和双击"/>
+		
+		<br>
+		<br>
+		<div id="message4"></div>
+		
+		<script type="text/javascript">
+			function singleClick(){
+				document.getElementById("message4").innerHTML="单击";
+			}
+			function doubleClick(){
+				document.getElementById("message4").innerHTML="双击";
+			}
+		</script>
+	
+	
+		<!--示例 5 : 变化事件 
+		当组件的值发生变化的时候，会触发onchange事件 
+		注：对于输入框而言，只有在失去焦点的时候，才会触发onchange，所以需要点击一下"按钮" 造成输入框失去焦点-->
+		<input type="text" id="input3" onchange="oc()" placeholder="输入内容" />
+		
+		<br />
+		<br />
+		<input type="button" value="使输入框失去焦点的按钮" />
+		<br />
+		<br />
+		<div id="message5"></div>
+		
+		<script type="text/javascript">
+			function oc(){
+				var i3=document.getElementById("input3");
+				var m5=document.getElementById("message5");
+				m5.innerHTML="输入框的值变成了："+i3.value;
+			}
+		</script>
+		
+		
+		<!--示例 6 : 提交事件
+		可以在form元素上，监听提交事件 
+		当form元素@提交的时候，会触发onsubmit事件 
+		本例使用 提交账号密码 来进行演示-->
+		<form action="/study/login.jsp" onsubmit="login()">
+		账号：<input type="text" name="name"> <br/>
+		密码：<input type="password" name="password" > <br/>
+		<input type="submit" value="登陆">
+		</form>
+		 
+		<script>
+		  function login(){
+		      alert("提交表单");
+		  }
+		</script>
+		
+	</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<!--示例 1 : 警告框-->
+		<!--警告框 alert，常用于消息提示，比如注册成功等等-->
+		<script type="text/javascript">
+			function warn() {
+				alert("警告");
+			}
+		</script>
+		<br />
+		<button onclick="warn()">警告</button>
+
+		<!--示例 2 : 确认框 
+		确认框 confirm，常用于危险性操作的确认提示。 比如删除一条记录的时候，弹出确认框
+		confirm返回基本类型的Boolean true或者false-->
+		<script>
+			function del() {
+				var d = confirm("是否要删除？");
+				alert("删除：" + d);
+			}
+		</script>
+		<br />
+		<button onclick="del()">删除</button>
+
+		<!--示例 3 : 输入框
+		输入框 prompt，用于弹出一个输入框，供用户输入相关信息。 因为弹出的界面并不好看，很有可能和网站的风格不一致，所以很少会在实际工作中用到。-->
+		<script>
+			function p() {
+				var name = prompt("请输入用户名:");
+				alert("您输入的用户名是:" + name);
+			}
+		</script>
+
+		<br>
+		<button onclick="p()">请输入用户名</button> 试一下
+
+	</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!-- BOM即 浏览器对象模型(Brower Object Model) 
+
+浏览器对象包括 
+Window(窗口) 
+Navigator(浏览器) 
+Screen (客户端屏幕) 
+History(访问历史) 
+Location(浏览器地址) 
+
+本章节从 Window(窗口)开始讲起 -->
+<script>
+    document.write("文档内容");
+    document.write("文档显示区域的宽度：" + window.innerWidth);
+    document.write("<br>");
+    document.write("文档显示区域的高度：" + window.innerWidth);
+
+</script>
+
+<!-- 示例 2 : 获取外部窗体的宽度和高度
+所谓的外部窗体即浏览器，可能用的是360，火狐，IE, Chrome等等。 -->
+<script>
+    document.write("<br>");
+    document.write("浏览器的宽度："+window.outerWidth);
+    document.write("<br>");
+    document.write("浏览器的宽度："+window.outerHeight);
+</script>
+

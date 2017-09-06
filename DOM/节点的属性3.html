@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<!--示例 5 : 元素上的属性
+		元素上的属性，比如id,value 可以通过 . 直接访问
+		如果是自定义属性，那么可以通过如下两种方式来获取
+		 
+		getAttribute("test")
+		attributes["test"].nodeValue
+		 
+		
+		注: class需要通过className获取-->
+		<div id="d1">hello HTML DOM</div>
+
+		<script>
+			function get() {
+
+				var input1 = document.getElementById("input1");
+				var s = "id=" + input1.id + "<br>";
+				s += "value=" + input1.value + "<br>";
+				s += "class=" + input1.className + "<br>";
+				s += "test=" + input1.getAttribute("test") + "<br>";
+				s += "test=" + input1.attributes["test"].nodeValue + "<br>";
+				
+				/*s1 +="id="+input1.id+"<br>";
+				s1+=value=input1.childNodes[0].nodeValue+"<br";*/
+
+				document.getElementById("d1").innerHTML = s;
+			}
+		</script>
+
+		<input id="input1" class="class1 class2" test="t1" value="这是一个输入框">
+		<br>
+		<button onclick="get()">获取input的属性</button>
+
+		<div style="height:30px"></div>
+	</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+		<style>
+			a {
+				font-size: 12px;
+				font-weight: bold;
+				color: SteelBlue;
+				text-decoration: none;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<script type="text/javascript">
+			function selectAll() {
+				var cbs = document.getElementsByClassName("cb");
+				for(var i = 1; i < cbs.length; i++) {
+					cbs[i].checked = (cbs[0].checked);
+				}
+			}
+
+			function reverse() {
+				var flag = true;
+				var cbs = document.getElementsByClassName("cb");
+				for(var i = 1; i < cbs.length; i++) {
+					cbs[i].checked = !cbs[i].checked;
+					flag = (cbs[i].checked && flag);
+					cbs[0].checked = flag;
+				}
+			}
+		</script>
+
+		<!--有多个复选框
+		点击选中所有，所有的复选框都选中了
+		点击反向选择，反选复选框-->
+
+		<input type="checkbox" class="cb" onclick="selectAll()" />全选<br>
+		<input type="checkbox" class="cb" />tokyo hot<br>
+		<input type="checkbox" class="cb" />dota <br>
+		<input type="checkbox" class="cb" />lol <br>
+		<input type="checkbox" class="cb" />wow <br>
+		<input type="checkbox" class="cb" />warcraft <br>
+		<input type="checkbox" class="cb" />diablo <br>
+		<a href="#nowhere" onclick="reverse()">反选</a>
+
+	</body>
+
+</html>

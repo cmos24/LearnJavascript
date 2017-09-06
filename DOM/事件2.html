@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<!--示例 7 : 加载事件  
+	当整个文档加载成功，或者一个图片加载成功，会触发加载事件
+	当body元素或者img@加载的时候，会触发onload事件-->
+
+	<script type="text/javascript">
+		function loadBody() {
+			document.getElementById("message1").innerHTML = "Body加载完毕";
+		}
+
+		function loadImg() {
+			document.getElementById("message2").innerHTML = "图片加载成功";
+		}
+	</script>
+
+	<body onload="loadBody()">
+		<div id="message1">
+
+		</div>
+		<div id="message2">
+
+		</div>
+
+		<img src="005.jpg" / onload="loadImg()">
+		
+		<br>
+		
+		
+		<!--示例 8 : 当前组件  
+		this表示触发事件的组件，可以在调用函数的时候，作为参数传进去-->
+		
+		<input type="button" onclick="singleClick(this)" value="演示this的按钮1">
+		<input type="button" onclick="singleClick(this)" value="演示this的按钮2">
+
+		<br>
+		<br>
+		<div id="message"></div>
+		
+		<br />
+		<script type="text/javascript">
+			function singleClick(button){
+				var m=document.getElementById("message");
+				m.innerHTML="被点击的按钮上的文本是："+button.value;
+			}
+		</script>
+		
+		<!--示例 9 : 阻止事件的发生  提问
+		比如在提交一个表单的时候，如果用户名为空，弹出提示，并阻止原本的提交
+		1. 在调用函数的时候，增加一个return
+		2. 在函数中，如果发现用户名为空，则返回false
+		3. 当onSubmit得到的返回值是false的时候，表单的提交功能就被取消了-->
+		
+		<form action="#" method="post" onsubmit="return login()">
+			<input type="text" id="name" name="name"/><br />
+			<input type="password" name="password" id="password" value="" /><br />
+			<input type="submit" value="登录"/><br />
+		</form>
+		
+		<script type="text/javascript">
+			function login(){
+				var name=document.getElementById("name");
+//				if(name.value==null)//这样写如果输入框是空的话会检测不到
+				if(name.value.length==0){
+					alert("用户名不能为空");
+					return false;
+				}
+				return true;
+			}
+		</script>
+		
+	</body>
+
+</html>

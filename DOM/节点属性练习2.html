@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<img id="pic" src="006.jpg"/>
+		<br />
+		<button onclick="change1()">通过src切换图片</button>
+		<button onclick="change2()">通过属性节点切换图片</button>
+		
+		<script type="text/javascript">
+			var pic=document.getElementById("pic");
+			function change1(){
+				//pic.src.value="005.jpg";//不用加value
+				pic.src="005.jpg";
+			}
+			function change2(){
+				pic.attributes["src"].nodeValue="http://how2j.cn/study/katarina.jpg";
+			}
+		</script>
+		
+	</body>
+</html>
