@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!--示例 1 : 替换节点  提问
+		与删除节点一样，替换节点也需要先获取父节点，然后通过父节点替换子节点。 
+		1. 获取父节点 
+		2. 创建子节点 
+		3. 获取被替换子节点 
+		4. 通过replaceChild进行替换 
+		注: replaceChild 第一个参数是保留的节点，第二个参数是被替换的节点-->
+		
+		<div id="parentDiv">
+		 <div id="d1">第一个div</div>
+		 <div id="d2">第二个div</div>
+		 <div id="d3">第三个div</div>
+		</div>
+		
+		<script type="text/javascript">
+			function replaceDiv(){
+				var d4=document.createElement("div");
+				var text=document.createTextNode("替换的内容");
+				
+				d4.appendChild(text);
+				
+				var d3 = document.getElementById("d3");
+				
+				var parentDiv=document.getElementById("parentDiv");
+				
+				parentDiv.replaceChild(d4,d3);
+			}
+		</script>
+		
+		<button onclick="replaceDiv()">替换div3内容</button>
+		
+	</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body onload="">
+
+		<!--示例 1 : 创建元素节点  提问
+		通过createElement 创建一个新的元素节点 
+		接着把该元素节点，通过appendChild加入到另一个元素节点div1中-->
+		<button onclick="add()">在div中追加一个hr元素</button>
+		<div id="d">
+			Hello HTML DOM
+		</div>
+		<script type="text/javascript">
+			function add() {
+				var hr = document.createElement("hr");
+				var div1 = document.getElementById("d");
+				div1.appendChild(hr);
+			}
+
+			function adds() {
+				setInterval(add, 100);
+			}
+		</script>
+
+		<!--示例 2 : 创建文本节点  提问
+		首先创建一个元素节点p (p是p标签，不是随便命名的变量名)
+		接着通过createTextNode创建一个内容节点text
+		把text加入到p
+		再把p加入到div-->
+
+		<button onclick="add1()">在div中追加一个p元素</button>
+
+		<div id="d1">Hello HTML DOM</div>
+		<script>
+			function add1() {
+
+				var p = document.createElement("p");
+				var text = document.createTextNode("这是通过DOM创建出来的<p>");
+				p.appendChild(text);
+
+				var div1 = document.getElementById("d1");
+				div1.appendChild(p);
+
+			}
+		</script>
+
+		<!--示例 3 : 创建属性节点  
+			首先创建一个元素节点a 
+			接着创建一个内容节点content 
+			把content加入到a 
+			然后通过createAttribute创建一个属性节点 href 
+			设置href的值为http:12306.com 
+			通过setAttributeNode把该属性设置到元素节点a上 
+			最后把a加入到div-->
+		<button onclick="add2()">在div中追加一个超链</button>
+		
+		<div id="d2">
+			Hello HTML DOM
+		</div>
+		
+		<script type="text/javascript">
+			function add2(){
+				var a=document.createElement("a");
+				var content=document.createTextNode("http://12306.com");
+				a.appendChild(content);//将内容节点加到a节点中
+				
+				var href=document.createAttribute("href");
+				href.nodeValue="http:12306.com";				
+				a.setAttributeNode(href);
+				
+				var div=document.getElementById("d2");
+				div.appendChild(a);
+			}
+		</script>
+		
+
+
+	</body>
+
+</html>

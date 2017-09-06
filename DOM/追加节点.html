@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!--示例 1 : 追加节点  提问
+		通过appendChild追加节点。 追加节点一定是把新的节点插在最后面 
+		1. 创建新节点 
+		2. 获取父节点 
+		3. 通过appendChild追加-->
+		
+		<div id="parentDiv">
+			<div id="div1">div1</div>
+			<div id="div2">div2</div>
+			<div id="div3">div3</div>
+		</div>
+		
+		
+		
+		<script type="text/javascript">
+			function appendDiv(){
+				var d4=document.createElement("div");
+				var text=document.createTextNode("追加div");
+				d4.appendChild(text);
+				
+				var parentDiv=document.getElementById("parentDiv");
+				parentDiv.appendChild(d4);
+			}
+		</script>
+		
+		<button onclick="appendDiv()">追加div</button>
+		
+		
+		<!--示例 2 : 在前方插入节点  提问
+		有时候，需要在指定位置插入节点，而不是只是追加在后面。 
+		这个时候就需要用到insertBefore 
+		1. 创建新节点 
+		2. 获取父节点 
+		3. 获取需要加入的子节点 
+		4. 通过insertBefore插入 
+		注: insertBefore的第一个参数是新元素，第二个参数是插入位置-->
+		
+		<div id="parentDiv1">
+			<div id="div11">div1</div>
+			<div id="div22">div2</div>
+			<div id="div33">div3</div>
+		</div>
+		
+		<script type="text/javascript">
+			function insbefore(){
+				var newDiv=document.createElement("div");
+				var text=document.createTextNode("新插入的节点");
+				newDiv.appendChild(text);
+				
+				var parent=document.getElementById("parentDiv1");
+				var beinsDiv=document.getElementById("div11");
+				
+				parent.insertBefore(newDiv,beinsDiv);//在div11之前插入新节点
+			}
+		</script>
+		
+		<button onclick="insbefore()">11111</button>
+		
+	</body>
+</html>

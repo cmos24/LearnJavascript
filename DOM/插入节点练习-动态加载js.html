@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>动态加载js</title>
+	</head>
+	<body>
+
+		
+		<script type="text/javascript">
+			function loadJs(){				
+				var loadJsDiv=document.createElement("script");
+				var src=document.createAttribute("src");				
+				/*src.nodeValue="test3041.js";//这样写不行，可能因为loadJsDiv本身就有src属性？
+				loadJsDiv.setAttribute(src);*/
+				loadJsDiv.src="test3041.js";
+				
+				var firstScript = document.getElementsByTagName("script")[0];
+				firstScript.parentNode.insertBefore(loadJsDiv,firstScript);
+
+			}
+		</script>
+		
+		
+		
+		<button onclick="loadJs()">加载js文件</button>
+		
+	</body>
+</html>
