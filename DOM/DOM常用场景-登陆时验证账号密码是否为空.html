@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<script type="text/javascript">
+			function c(){
+				document.getElementById("usernameMsg").childNodes[0].nodeValue="";//这样写不行
+				document.getElementById("passwordMsg").childNodes[0].nodeValue="";//这样写不行
+				//document.getElementById("usernameMsg").nodeValue="";//这样写不行
+				//document.getElementById("passwordMsg").nodeValue="";//这样写不行
+			}
+			
+			function check(){
+				
+				var username=document.getElementById("username").value;
+				var pasword=document.getElementById("password").value;
+				if(0==username.length){
+					document.getElementById("usernameMsg").innerHTML="请输入帐号";
+					return false;
+				}
+				if(0==pasword.length){
+					document.getElementById("passwordMsg").innerHTML="请输入密码";
+					return false;
+				}
+				return true;
+			}
+		</script>
+
+		<form action="#" method="post" onsubmit="return check()">
+			<input type="text" id="username" placeholder="请输入帐号" /><span id="usernameMsg"></span>
+			<br />
+			<input type="password" id="password" placeholder="请输入密码" /><span id="passwordMsg"></span>			
+			<br />
+			<input type="submit" value="登录" />
+		</form>
+		
+		<button onclick="c()">clear</button>
+	</body>
+
+</html>

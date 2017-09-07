@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<form method="post" action="/study/register.jsp" onsubmit="return register()">
+			账号：<input id="name" type="text" name="name">
+			<br><br> 年龄：
+
+			<input id="age" type="text" name="age">
+			<br><br>
+			<input type="submit" value="注册">
+			<br>
+		</form>
+
+		<script>
+			function register() {
+				var name = document.getElementById("name");
+				if(name.value.length < 3) {
+					alert("用户名至少需要3位长度");
+					return false;
+				}
+
+				var age = document.getElementById("age");
+				if(parseInt(age.value) != age.value) {//将输入的数字转换成整数之后看是不是和原来的一样，如果一样说明是整数
+					alert("年龄必须是整数");
+					return false;
+				}
+				return true;
+			}
+		</script>
+
+	</body>
+
+</html>

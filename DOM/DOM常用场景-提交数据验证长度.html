@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<form method="post" action="/study/register.jsp" onsubmit="return register()">
+			账号：<input id="name" type="text" name="name">
+			<br><br>
+			<input type="submit" value="注册">
+			<br>
+		</form>
+
+		<script>
+			function register() {
+				var name = document.getElementById("name");
+				if(name.value.length < 3) {
+					alert("用户名至少需要3位长度");
+					return false;
+				}
+
+				return true;
+
+			}
+		</script>
+
+	</body>
+
+</html>

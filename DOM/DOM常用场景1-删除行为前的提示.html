@@ -1,9 +1,52 @@
+<!--在进行删除操作前，都应该提示用户是否要删除-->
+
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		
+		<style type="text/css">
+			t1{
+				border: solid;
+			}
+		</style>
+		
 	</head>
 	<body>
+		
+		<script type="text/javascript">
+			function del(t){
+				var b=confirm("确认删除？");
+				if(!b){
+					return;
+				}
+				
+				var table=document.getElementById("heroTable");
+				var td=t.parentNode;
+				var tr=td.parentNode;
+				var index=tr.rowIndex
+				table.deleteRow(index);
+			}
+		</script>
+		
+		<table id="heroTable">
+			<tr>
+				<td> 英雄名称</td>
+				<td> 操作</td>
+			</tr>
+			<tr>
+				<td> 盖伦</td>
+				<td> <a href="#" onclick="del(this)">删除</a></td>
+			</tr>
+			<tr>
+				<td> 提莫</td>
+				<td><a href="#" onclick="del(this)">删除</a></td>
+			</tr>
+			<tr>
+				<td> 寒冰</td>
+				<td><a href="#" onclick="del(this)">删除</a></td>
+			</tr>
+		</table>
 	</body>
 </html>
