@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<span id="">输入帐号：</span>
+		<input type="text" id="name" name="name" onkeyup="check()" />
+		<span id="checkResult"></span>
+		<span id="cr"> </span>
+		<!--像上一行这样写子节点才存在-->
+				
+		
+		<script type="text/javascript">
+		/*1. 创建XHR对象
+		2. 设置响应函数
+		3. 设置要访问的页面
+		4. 发出请求
+		5. 当服务端的响应返回，响应函数被调用。
+		6. 在响应函数中，判断响应是否成功，如果成功获取服务端返回的文本，并显示在span中。*/	
+			
+			var xmlhttp;
+			function check(){
+				var name=document.getElementById("name").value;
+				var url="http://how2j.cn/study/checkName.jsp?name="+name;
+				
+				xmlhttp=new XMLHttpRequest();//实例化XHR对象
+				xmlhttp.onreadystatechange=checkResult;//设置响应函数
+				xmlhttp.open("GET",url,true);//设置传输方式和访问的页面
+				xmlhttp.send(null);//执行访问				
+			}
+			//用户名"abc"已经存在
+			/*xmlhttp.readyState 4 表示请求已完成
+			xmlhttp.status 200 表示响应成功
+			xmlhttp.responseText; 用于获取服务端传回来的文本
+			document.getElementById('checkResult').innerHTML 设置span的内容为服务端传递回来的文本*/
+			function checkResult(){
+				if(4==xmlhttp.readyState&&200==xmlhttp.status){//请求已完成，且响应就绪&&OK
+					document.getElementById("checkResult").innerHTML=xmlhttp.responseText;
+					//document.getElementById("checkResult").childNodes[0].nodeValue=xmlhttp.responseText;//这样写的话要节点处有东西才能起效，否则这个childNode是不存在的，在本例中span标签之间不能什么都没有，至少要有个空格让子节点存在才能用nodeValue给他赋值
+				}
+			}
+
+
+			/*checkName.jsp
+			 * <%@ page language="java" contentType="text/html; charset=UTF-8"
+			    pageEncoding="UTF-8" isELIgnored="false"%>
+			 
+			<%
+			    String name = request.getParameter("name");
+			     
+			    if("abc".equals(name))
+			        out.print("<font color='red'>已经存在</font>");
+			    else 
+			        out.print("<font color='green'>可以使用</font>");
+			     
+			%>*/
+				
+		
+		</script>
+		
+		<script type="text/javascript">
+			var xmlhttp1;
+			function check1(){
+				var name1= document.getElementById("name");
+				var url1="http://how2j.cn/study/checkName.jsp";
+				
+				xmlhttp1=new XMLHttpRequest();
+				xmlhttp1.onreadystatechange=checkResult1;
+				xmlhttp1.open("POST",url1,true);
+				xmlhttp1.send("name="+name1);				
+				
+			}
+			function checkResult1(){
+				if(4==xmlhttp1.readyState&&200==xmlhttp1.status){
+					document.getElementById("cr").childNodes[0].nodeValue=xmlhttp1.responseText;
+				}
+			}
+		</script>
+		
+		
+	</body>
+</html>
