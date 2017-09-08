@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		 <!--示例 6 : 增加监听器  提问
+			JQuery增加click事件的监听
+			 
+			$("#b1").click(function(){
+			   alert("点击了按钮");
+			});
+			 
+			
+			这个也是由两部分组成：
+			1. b1按钮的点击事件
+			 
+			$("#b1").click();
+			 
+			
+			2. 弹出对话框的函数
+			 
+			function(){
+			   alert("点击了按钮");
+			}
+			 
+			
+			与原生javascript需要在html元素上增加监听事件不同的是
+			JQuery 不需要在html元素上进行操作
+			这样的好处是，html只需要显示内容，特别是业务复杂起来之后维护js代码会更加容易。-->
+			
+			<script src="jquery-3.2.1.min.js">
+				
+			</script>
+			
+			<script type="text/javascript">
+				$(function(){
+					$("#b0").click(function(){
+						alert("点击了按钮");
+					});
+				});
+			</script>
+			
+			<button id="b0">按钮</button>
+			
+			<br />
+			 
+			<button id="b1">隐藏div</button>			
+			<button id="b2">显示div</button>			
+			<br>
+			<br>			
+			<div id="d">这是一个div</div>
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$("#b1").click(function(){
+						$("#d").hide();
+					});
+					$("#b2").click(function(){
+						$("#d").show();
+					});				
+				});
+			</script>
+		
+	</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<!--示例 8 : 属性  提问
+		$(selector[attribute]) 满足选择器条件的有某属性的元素
+		$(selector[attribute=value]) 满足选择器条件的属性等于value的元素
+		$(selector[attribute!=value]) 满足选择器条件的属性不等于value的元素
+		$(selector[attribute^=value]) 满足选择器条件的属性以value开头的元素
+		$(selector[attribute$=value]) 满足选择器条件的属性以value结尾的元素
+		$(selector[attribute*=value]) 满足选择器条件的属性包含value的元素
+		
+		
+		注： 一般不要使用[class=className] 而应该使用.className
+		因为使用$("[class='className']") .toggleClass("anotherClassName")
+		会导致class变成className anotherClassName,再次 使用 [class=className] 就无法选中了
+		而.className没有这个问题。-->
+		
+		<script src="jquery-3.2.1.min.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#b1").click(function(){
+					$("div[id]").toggleClass("border");
+				});
+				$("#b2").click(function(){
+					$("div[id='pink']").toggleClass("border");
+				});
+				$("#b3").click(function(){
+					$("div[id!='pink']").toggleClass("border");
+				});
+				$("#b4").click(function(){
+					$("div[id^='p']").toggleClass("border");
+				});
+				$("#b5").click(function(){
+					$("div[id$='k']").toggleClass("border");
+				});
+				$("#b6").click(function(){
+					$("div[id*='ee']").toggleClass("border");
+				});
+			});
+		</script>
+		
+
+		<button id="b1">给有id属性的div切换边框</button>
+		<button id="b2">给id=pink的div切换边框</button>
+		<button id="b3">给有id!=pink属性的div切换边框</button>
+		<button id="b4">给有id以p开头的div切换边框</button>
+		<button id="b5">给有id以k结尾的div切换边框</button>
+		<button id="b6">给有id包含ee的div切换边框</button>
+
+		<br>
+		<br>
+
+		<style>
+			.pink {
+				background-color: pink;
+			}
+			
+			.green {
+				background-color: green;
+			}
+			
+			.border {
+				border: 1px blue solid;
+			}
+			
+			button {
+				margin-top: 10px;
+				display: block;
+			}
+			
+			div {
+				margin: 10px;
+			}
+		</style>
+
+		<div id="pink">
+			id=pink的div
+		</div>
+
+		<div id="green">
+			id=green的div
+		</div>
+
+		<div>
+			没有id的div
+		</div>
+
+	</body>
+
+</html>

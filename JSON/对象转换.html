@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<!--示例 1 : JSON对象与JavaScript对象  提问
+		JavaScript对象 分内置对象(Number,String,Array,Date,Math)和自定义对象 
+		JSON就是自定义对象，只不过是以JSON这样的数据组织方式表达出来 
+		所以不存在JSON对象与JavaScript对象的转换问题-->
+
+		<!--示例 2 : 字符串转为JSON对象  提问
+		通过字符串拼接得到一个JSON结构的字符串，并不是一个JSON对象。 需要通过eval转换得到 
+		转换的时候注意,eval 函数要以（ 开头，）结尾 
+		或者使用JQuery的$.parseJSON转换函数-->
+
+
+		<script type="text/javascript">
+			var s1 = "{\"name\":\"盖伦\"";
+			//var s1 = "{\"name\":\"盖伦\ "";//如果用HBuilder的整理代码格式功能会在字符串中自动加入空格导致转换JSON对象失败
+			var s2 = ",\"hp\":616}";
+			var s3 = s1 + s2;
+
+			document.write("这是一个JSON格式的字符串:" + s3);
+			document.write("<br />");
+			var gareen = eval("(" + s3 + ")"); //转换的字符串头尾要加括号
+
+			document.write("这是一个JSON对象:" + gareen.name)
+		</script>
+
+	</body>
+
+</html>

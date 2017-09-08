@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style>
+		table{
+		    border-collapse:collapse;
+		    table-layout:fixed;
+		    width:35%;
+		}
+		table td{
+		    border-bottom: 1px solid #ddd;
+		    padding-bottom: 5px;
+		    padding-top: 5px;
+		}
+		 
+		div button{
+		    display:block;
+		}
+		</style>
+	</head>
+
+	<body>
+
+		<!--示例 9 : 表单对象  提问
+		表单对象选择器 指的是选中form下会出现的输入元素
+		:input 会选择所有的输入元素，不仅仅是input标签开始的那些，还包括textarea,select和button
+		:button 会选择type=button的input元素和button元素
+		:radio 会选择单选框
+		:checkbox会选择复选框
+		:text会选择文本框，但是不会选择文本域
+		:submit会选择提交按钮
+		:image会选择图片型提交按钮
+		:reset会选择重置按钮
+		
+		注意: 第7行 
+		 
+		$("td[rowspan!=13] "+value).toggle(500);
+		 		
+		$("td[rowspan!=13] 后面有一个空格，表示层级选择器，如果没有就会出错
+		toggle(500) 表示在显示与隐藏之间来回切换，生效时间是500毫秒		
+		注： :submit会把<button>元素选中，因为在一些浏览器中，<button>元素的type默认值是submit，所以会选中它。 关于这个问题，请移步参考：使用button元素提交数据-->
+
+		<script src="jquery-3.2.1.min.js"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+				$(".b").click(function(){
+					var value=$(this).val();
+					$("td[rowspan!=13] "+value).toggle(500);//这个空格很关键，不加空格的话不能选中td里面的子元素
+				});
+			});
+		</script>
+
+		<table>
+			<tr>
+
+				<td rowspan="13" valign="top" width="150px">
+					<div>
+						<!--rowspan设置可以横跨的行数-->
+						<button value=":input" class="b">切换所有的:input</button>
+						<button value=":button" class="b">切换:button</button>
+						<button value=":radio" class="b">切换:radio</button>
+						<button value=":checkbox" class="b">切换:checkbox</button>
+						<button value=":text" class="b">切换:text</button>
+						<button value=":password" class="b">切换:password</button>
+						<button value=":file" class="b">切换:file</button>
+						<button value=":submit" class="b">切换:submit</button>
+						<button value=":image" class="b">切换:image</button>
+						<button value=":reset" class="b">切换:reset</button>
+					</div>
+				</td>
+				<td width="120px">说明</td>
+				<td width="120px">表单对象</td>
+				<td width="">示例</td>
+			</tr>
+
+			<tr>
+				<td>input按钮</td>
+				<td>:button</td>
+				<td><input type="button" value="input按钮" /></td>
+			</tr>
+
+			<tr>
+				<td>button按钮</td>
+				<td>:button</td>
+				<td><button>Button按钮</button></td>
+			</tr>
+
+			<tr>
+				<td>单选框</td>
+				<td>:radio</td>
+				<td><input type="radio"></td>
+			</tr>
+			<tr>
+				<td>复选框</td>
+				<td>:checkbox</td>
+				<td><input type="checkbox"></td>
+			</tr>
+
+			<tr>
+				<td>文本框</td>
+				<td>:text</td>
+				<td><input type="text" /></td>
+			</tr>
+			<tr>
+				<td>文本域</td>
+				<td></td>
+				<td><textarea></textarea></td>
+			</tr>
+			<tr>
+				<td>密码框</td>
+				<td>:password</td>
+				<td><input type="password" /></td>
+			</tr>
+			<tr>
+				<td>下拉框</td>
+				<td></td>
+				<td>
+					<select>
+						<option>Option</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>文件上传</td>
+				<td>:file</td>
+				<td> <input type="file" /></td>
+			</tr>
+
+			<tr>
+				<td>提交按钮</td>
+				<td>:submit</td>
+				<td><input type="submit" /></td>
+			</tr>
+			<tr>
+				<td>图片型提交按钮</td>
+				<td>:image</td>
+				<td><input type="image" src="../DOM/006.jpg" /></td>
+			</tr>
+
+			<tr>
+				<td>重置按钮</td>
+				<td>:reset</td>
+				<td><input type="reset" /></td>
+			</tr>
+
+		</table>
+
+	</body>
+
+</html>

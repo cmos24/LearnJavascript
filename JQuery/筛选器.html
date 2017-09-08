@@ -1,0 +1,207 @@
+<!--筛选器指的是在已经通过选择器选中了元素后，在此基础上进一步选择。-->
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script src="jquery-3.2.1.min.js" type="text/javascript"></script>
+		<script>
+			$(function() {
+				$("#b1").click(function() {
+					$("div").first().toggleClass("pink");
+				});
+
+				$("#b2").click(function() {
+					$("div").last().toggleClass("pink");
+				});
+
+				$("#b3").click(function() {
+					$("div").eq(4).toggleClass("pink");
+				});
+
+			});
+		</script>
+		<button id="b1">切换第1个div背景色</button>
+		<button id="b2">切换最后1个div背景色</button>
+		<button id="b3">切换第5个div背景色</button>
+
+		<br/>
+		<br/>
+
+		<style>
+			.pink {
+				background-color: pink;
+			}
+		</style>
+
+		<div>
+			<span>Hello JQuery 1</span>
+
+		</div>
+
+		<div>
+			<span>Hello JQuery 2</span>
+		</div>
+
+		<div>
+			<span>Hello JQuery 3</span>
+		</div>
+
+		<div>
+			<span>Hello JQuery 4</span>
+		</div>
+
+		</div>
+
+		<div>
+			<span>Hello JQuery 5</span>
+		</div>
+
+		<div>
+			<span>Hello JQuery 6</span>
+		</div>
+
+		<!--示例 2 : 父 祖先  提问
+		parent() 选取最近的一个父元素 
+		parents() 选取所有的祖先元素-->
+		<br />
+		<br />
+
+		<style>
+			div {
+				padding: 20px;
+			}
+			
+			div#grandParentDiv {
+				background-color: pink;
+			}
+			
+			div#parentDiv {
+				background-color: green;
+			}
+			
+			div#currentDiv {
+				background-color: red;
+			}
+			
+			.b {
+				border: 2px solid black;
+			}
+		</style>
+
+		<script type="text/javascript">
+			$(function() {
+				$("#b4").click(function() {
+					$("#currentDiv").parent().toggleClass("b");
+				});
+				$("#b5").click(function() {
+					$("#currentDiv").parents().toggleClass("b");
+				});
+			});
+		</script>
+
+		<button id="b4">改变parent()的边框</button>
+
+		<button id="b5">改变parents()的边框</button>
+
+		<div id="grandParentDiv">
+			祖先元素
+			<div id="parentDiv">
+				父元素
+				<div id="currentDiv">当前元素</div>
+			</div>
+		</div>
+
+		<!--示例 3 : 儿子 后代  提问
+	children(): 筛选出儿子元素 (紧挨着的子元素) 
+	find(selector): 筛选出后代元素 
+	注: find() 必须使用参数 selector-->
+		<br />
+		<br />
+
+		<style>
+			div.grandChildrenDiv {
+				background-color: pink;
+			}
+			
+			div.childrenDiv {
+				background-color: green;
+				margin: 10px;
+			}
+			
+			div#currentDiv1 {
+				background-color: red;
+			}
+		</style>
+
+		<script type="text/javascript">
+			$(function() {
+				$("#b6").click(function() {
+					$("#currentDiv1").children().toggleClass("b");
+				});
+				$("#b7").click(function() {
+					$("#currentDiv1").find("div").toggleClass("b");
+				});
+			});
+		</script>
+
+		<button id="b6">改变children()的边框</button>
+		<button id="b7">改变find()的边框</button>
+		<div id="currentDiv1">当前元素
+			<span id="">
+					span元素，不是div
+				</span>
+			<div class="childrenDiv">儿子元素1
+				<div class="grandChildrenDiv">后代元素n</div>
+			</div>
+			<div class="childrenDiv">儿子元素2
+				<div class="grandChildrenDiv">后代元素n</div>
+			</div>
+		</div>
+
+		<!--示例 4 : 同级  提问
+				siblings(): 同级(同胞)元素-->
+
+		<br />
+		<script>
+		$(function(){
+		  $("#b8").click(function(){
+		     $("#currentDiv2").siblings().toggleClass("b");
+		  });
+		  
+		});
+		</script>
+		
+		<style>			
+			div#parentDiv2 {
+				background-color: green;
+			}
+			
+			div#currentDiv2 {
+				background-color: red;
+			}
+			
+		</style>
+
+		<button id="b8">给同级加上边框</button>
+
+		<div id="parentDiv2">
+			父元素
+			<div id="currentDiv2">
+				当前元素
+			</div>
+			<div>
+				同级元素
+			</div>
+			<div>
+				同级元素
+			</div>
+		</div>
+
+	</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!--JQuery是一个javascript的框架，是对javascript的一种封装。 
+
+通过JQuery可以非常方便的操作html的元素 
+
+本例通过JQuery 实现 "隐藏与显示"，并分步讲解每一个步骤的意思-->
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<!--示例 1 : 使用JQuery进行隐藏和显示-->
+		<script src="jquery-3.2.1.min.js"></script>
+
+		<script>
+			$(function() {
+				/*这是为了防止文档在完全加载（就绪）之前运行 jQuery 代码。
+				换句话说，写在这里面的JQuery代码都是文档加载好之后的。
+				就不会有获取一个还没有加载好的图片这种问题了。*/
+
+				/*示例 5 : 通过id获取元素  提问
+				与javascript通过id获取元素节点的方式(document.getElementById )不同
+				JQuery通过 $("#id") 就可以获取了
+			
+			
+				需要注意的是，通过 document.getElementById 获取到的是 DOM里的 元素节点
+				而通过$("#id") 获取到的是一个 JQuery 对象*/
+
+				$("#b1").click(function() {
+					$("#d").hide();
+				});
+
+				$("#b2").click(function() {
+					$("#d").show();
+				});
+			});
+		</script>
+
+		<button id="b1">隐藏div</button>
+		<button id="b2">显示div</button>
+
+		<br>
+		<br>
+
+		<div id="d">
+
+			这是一个div
+
+		</div>
+		
+		<script>
+			$(function(){
+				document.write($("#d1"));
+				document.close();
+			});
+		</script>
+		
+		<div id="d1">
+			JQ
+		</div>
+	</body>
+
+</html>

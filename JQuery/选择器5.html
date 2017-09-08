@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style type="text/css">
+			table{
+				border-collapse: collapse;
+				table-layout: fixed;
+				width: 35%;
+			}
+			table td{
+				border-bottom: 1px solid #ddd;
+				padding-bottom: 5px;
+				padding-top: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<!--示例 11 : 当前元素  提问
+		在监听函数中使用 $(this)，即表示触发该事件的组件。-->
+		<script src="jquery-3.2.1.min.js" type="text/javascript"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+				$("#b1").click(function(){
+					$(this).toggle(100);
+				});
+				
+				$("tr:odd").css("background-color","lightblue");
+				
+			});
+		</script>
+		
+		<button id="b1">button</button>
+		
+		
+		
+		
+		<table id="heroTable">
+			<tr>
+				<td>id</td>
+				<td>名称</td>
+				<td>hp</td>
+				<td>damage</td>
+			</tr>
+			
+			<tr>
+				<td>1</td>
+				<td>盖伦</td>
+				<td>616</td>
+				<td>300</td>
+			</tr>
+			
+			<tr>
+				<td>2</td>
+				<td>提莫</td>
+				<td>414</td>
+				<td>500</td>
+			</tr>
+			
+			<tr>
+				<td>3</td>
+				<td>蛮王</td>
+				<td>500</td>
+				<td>420</td>
+			</tr>
+			
+			<tr>
+				<td>4</td>
+				<td>寒冰</td>
+				<td>450</td>
+				<td>800</td>
+			</tr>
+		</table>
+		
+		
+	</body>
+</html>
