@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<!--示例 1 : 加载  提问
+		页面加载有两种方式表示 
+		1. $(document).ready(); 
+		2. $(); 这种比较常用 
+		图片加载用load()函数-->
+		<script src="http://how2j.cn/study/jquery.min.js" type="text/javascript"></script>
+		<!--jquery-3.2.1.min.js、jquery-3.2.1.js不支持load（）-->
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("#message1").html("页面加载成功");
+			});
+			$(function() {
+				$("#img").load(function() {
+					$("#message2").html("图片加载成功");
+				});
+			});
+		</script>
+
+		<div id="message1"></div>
+		<div id="message2"></div>
+
+		<img id="img" src="../DOM/006.jpg">
+
+		<!--示例 2 : 点击  提问
+		click() 表示单击 
+		dblclick() 表示双击 
+		注: 空白键和回车键也可以造成click事件，但是只有双击鼠标才能造成dblclick事件-->
+		<br />
+
+		<script type="text/javascript">
+			$(function() {
+				$("#b0").click(function() {
+					$("#message0").html("单击按钮");
+				});
+				$("#b").dblclick(function() {
+					$("#message0").html("双击按钮");
+				});
+			});
+		</script>
+
+		<div id="message0">11</div>
+
+		<button id="b0">测试单击和双击</button>
+
+		<!--示例 3 : 键盘  
+		keydown 表示按下键盘
+		keypress 表示按下键盘
+		keyup 表示键盘弹起
+		这三者的区别分别表现在发生的 先后顺序，获取到的键盘按钮值，已经对输入框的文本取值这三方面
+		先后顺序： 按照 keydown keypress keyup 顺序发生
+		键盘按钮值：
+		通过event对象的which属性获取键盘的值
+		keydown和keyup 能获取所有按键，不能识别大小写
+		keypress 不能获取功能键，如F1 SHIFT等，能够识别大小写
+		文本取值：
+		keydown和keypress：不能获取最后一个字符
+		keyup： 获取所有字符
+		如图所例，敲入ab
+		发生的先收顺序是 keydown,keypress,keyup
+		keydown和keyup取到大写B的ASCII码表 66,keypress取到小写b的ASCII码表 98.
+		keydown和keypress只能取到文本值a, keyup可以取到ab-->
+
+		<!--<script src="jquery-3.2.1.min.js" type="text/javascript"></script>-->
+
+		<br />
+		<br />
+
+		<script type="text/javascript">
+			var order = 0;
+			var clearTimer = null;
+			$(function() {
+				$("#i").keydown(function(e) {
+					var selector = "keydown";
+
+					show(selector, e, $(this).val());
+				});
+
+				$("#i").keypress(function(e) {
+					var selector = "keypress";
+					show(selector, e, $(this).val());
+				});
+
+				$("#i").keyup(function(e) {
+					var selector = "keyup";
+					show(selector, e, $(this).val());
+				});
+			});
+
+			function show(selector, e, inputvalue) {
+				clearTimeout(clearTimer);
+				action(selector);
+				key(selector, e);
+				value(selector, inputvalue);
+				clearTimer = setTimeout(clear, 4000);
+			}
+
+			function action(selector) {
+				$("#" + selector + "Action").css("background-color", "green");
+				$("#" + selector + "Action").html("顺序: " + (++order));
+			}
+
+			function value(selector, value) {
+				$("#" + selector + "Value").html(value);
+			}
+
+			function key(selector, e) {
+				$("#" + selector + "Key").html(e.which);
+			}
+
+			function clear() {
+				order = 0;
+				$("tr#action div").css("background-color", "red");
+				$("tr div").html("");
+			}
+		</script>
+
+		<style>
+			tr#action div {
+				border: 1px solid black;
+				height: 50px;
+				background-color: red;
+			}
+			
+			tr#value div,
+			tr#key div {
+				height: 50px;
+				background-color: #d1d1d1;
+			}
+			
+			td {
+				width: 25%;
+			}
+		</style>
+
+		输入框：<input id="i">
+		<table width="100%">
+			<tr>
+				<td></td>
+				<td>keydown</td>
+				<td>keypress</td>
+				<td>keyup</td>
+			</tr>
+			<tr id="action">
+				<td>行为</td>
+				<td>
+					<div id="keydownAction"></div>
+				</td>
+				<td>
+					<div id="keypressAction"></div>
+				</td>
+				<td>
+					<div id="keyupAction"></div>
+				</td>
+			</tr>
+
+			<tr id="key">
+				<td>按键</td>
+				<td>
+					<div id="keydownKey"></div>
+				</td>
+				<td>
+					<div id="keypressKey"></div>
+				</td>
+				<td>
+					<div id="keyupKey"></div>
+				</td>
+			</tr>
+
+			<tr id="value">
+				<td>取值</td>
+				<td>
+					<div id="keydownValue"></div>
+				</td>
+				<td>
+					<div id="keypressValue"></div>
+				</td>
+				<td>
+					<div id="keyupValue"></div>
+				</td>
+			</tr>
+
+		</table>
+
+	</body>
+
+</html>

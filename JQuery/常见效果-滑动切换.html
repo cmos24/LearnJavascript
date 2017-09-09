@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<!--示例 2 : 向上滑动 向下滑动 滑动切换  提问
+		向上滑动 向下滑动 滑动切换 分别通过slideUp(), slideDown(),slideToggle()实现 
+		也可以加上毫秒数，表示延时操作，比如slideUp(2000)-->
+
+		<script src="jquery-3.2.1.min.js" type="text/javascript"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+				var div=$("#d");
+				$("#b1").click(function(){
+					div.slideUp();
+				});
+				$("#b2").click(function(){
+					div.slideDown();
+				});
+				$("#b3").click(function(){
+					div.slideToggle();
+				});
+				$("#b4").click(function(){
+					div.slideUp(2000);
+				});
+				$("#b5").click(function(){
+					div.slideDown(2000);
+				});
+				$("#b6").click(function(){
+					div.slideToggle(2000);
+				});
+			});
+		</script>
+
+
+		<style type="text/css">
+			button{
+				display: block;
+			}
+			div{
+				border: solid 1px gray;
+				background-color: aliceblue;
+				width: 300px;
+				height: 100px;
+			}
+		</style>
+
+		<button id="b1">向上滑动</button>
+		<button id="b2">向下滑动</button>
+		<button id="b3">滑动切换</button>
+
+		<button id="b4">延时向上滑动</button>
+		<button id="b5">延时向下滑动</button>
+		<button id="b6">延时滑动切换</button>
+
+		<br>
+		<br>
+
+		<div id="d">
+			用于演示效果的DIV
+		</div>
+
+	</body>
+
+</html>

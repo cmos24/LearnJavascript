@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<!--示例 5 : 回调函数  提问
+			效果一般需要一定的时间，并且这个时间可长可短，所以就无法精确的确定该效果合适结束。 
+			好在，效果方法都提供对回调函数callback()的支持。 
+			只需要在调用效果方法的最后一个参数传入一个function，当效果结束的时候，就会自动调用该function了。
+		-->
+
+		<script src="jquery-3.2.1.min.js" type="text/javascript">
+		</script>
+
+		<script type="text/javascript">
+			$(function() {
+				var div = $("#d");
+				$("#b").click(function() {
+					div.animate({
+						left: '100px'
+					}, 2000);
+					div.animate({
+						left: '0px',
+						top: '50px',
+						height: '50px'
+					}, 2000, function() {
+						alert("结束");
+					});
+				});
+			});
+		</script>
+
+		<style>
+			button {
+				display: block;
+			}
+			
+			div {
+				background-color: pink;
+				width: 200px;
+				height: 80px;
+				font-size: 12px;
+				position: relative;
+			}
+		</style>
+
+		<button id="b">自定义动画结束时，会有提示框</button>
+
+		<br>
+		<br>
+
+		<div id="d">
+			<p>1. 向右移动100px</p>
+			<p>2. 向左下移动50px，同时高度变小</p>
+		</div>
+	</body>
+
+</html>

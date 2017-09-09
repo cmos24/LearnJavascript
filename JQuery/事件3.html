@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<!--示例 8 : 绑定事件  提问
+	以上所有的事件处理，都可以通过on() 绑定事件来处理
+	 
+	$("selector").on("event",function);-->
+		<script src="jquery-3.2.1.min.js" type="text/javascript"></script>
+
+		<script>
+			$(function() {
+				$("#b").on("click", function() {
+					$("#message").html("单击按钮");
+				});
+				$("#b").on("dblclick", function() {
+					$("#message").html("双击按钮");
+				});
+
+			});
+		</script>
+
+		<div id="message"></div>
+
+		<button id="b">测试单击和双击</button>
+
+	</body>
+
+	<!--示例 9 : 触发事件  提问
+	触发事件，在本例中，文档加载好之后，就触发dblclick双击事件，而不是通过去手动双击。
+	 
+	$("selector").trigger("event");-->
+
+	<script>
+		$(function() {
+			$("#b1").on("click", function() {
+				$("#message1").html("单击按钮");
+			});
+			$("#b1").on("dblclick", function() {
+				$("#message1").html("双击按钮");
+			});
+			$("#b1").trigger("dblclick");
+		});
+	</script>
+
+	<div id="message1"></div>
+
+	<button id="b1">测试单击和双击</button>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<!--示例 5 : 焦点  提问
+		focus() 获取焦点 
+		blur() 失去焦点-->
+
+		<script src="jquery-3.2.1.min.js" type="text/javascript"></script>
+
+		<script type="text/javascript">
+			$(function() {
+				$(".input1").focus(function() {
+					$(this).val("获取了焦点");
+				});
+				$(".input1").blur(function() {
+					$(this).val("失去了焦点");
+				});
+			});
+		</script>
+
+		<input type="text" class="input1">
+
+		<input type="text" class="input1">
+
+		<!--示例 6 : 改变 
+		change() 内容改变 
+		
+		注： 对于文本框，只有当该文本失去焦点的时候，才会触发change事件。-->
+
+		<script type="text/javascript">
+			$(function(){
+				$("#input2").change(function(){
+					$("#message2").html("input2的内容变成了："+$(this).val());
+				});
+			});
+		</script>
+
+		<div id="message2"></div>
+
+		<input id="input2" type="text">
+		<br>
+		<input size="50" id="input3" type="text" value="只有当input1失去焦点的时候，才会触发change事件">
+
+
+		<!--示例 7 : 提交  提问
+		submit() 提交form表单		-->
+		<form id="form" action="http://how2j.cn/study/login.jsp">
+			帐号：<input name="name" type="text" /><br />
+			密码：<input name="password" type="password" /><br />
+			<input type="submit" value="login" />
+		</form>
+		
+		<script type="text/javascript">
+			$(function(){
+				$("#form").submit(function(){
+					alert("提交账号密码");
+				});
+			});
+		</script>
+
+	</body>
+
+</html>

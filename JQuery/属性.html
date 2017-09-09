@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<!--示例 1 : 获取  提问
+		通过attr()获取一个元素的属性-->
+		<script src="jquery-3.2.1.min.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(function() {
+				$("#b1").click(function() {
+					alert("align属性是：" + $("#h").attr("align"));
+				});
+				$("#b2").click(function() {
+					alert("game属性是：" + $("#h").attr("game"));
+				});
+			});
+		</script>
+
+		<button id="b1">获取align属性</button>
+		<button id="b2">获取自定义属性</button>
+		<br />
+		<br />
+
+		<h1 id="h" align="center" game="LOL">居中标题</h1>
+
+		<!--示例 2 : 修改  提问
+		通过attr(attr,value)修改属性-->
+
+		<button id="b3">修改align属性为right</button>
+
+		<script type="text/javascript">
+			$(function() {
+				$("#b3").click(function() {
+					$("#h").attr("align", "left");
+				});
+			});
+		</script>
+
+		<!--示例 3 : 删除  提问
+		通过removeAttr(attr)删除属性-->
+
+		<button id="b4">删除align属性</button>
+
+		<script type="text/javascript">
+			$(function() {
+				$("#b4").click(function() {
+					$("#h").removeAttr("align");
+				});
+			});
+		</script>
+
+		<!--示例 4 : prop与attr的区别  提问
+		与prop一样attr也可以用来获取与设置元素的属性。
+		区别在于，对于自定义属性和选中属性的处理。
+		选中属性指的是 checked,selected 这2种属性
+		1. 对于自定义属性 attr能够获取，prop不能获取
+		2. 对于选中属性
+		attr 只能获取初始值， 无论是否变化
+		prop 能够访问变化后的值，并且以true|false的布尔型返回。
+		所以在访问表单对象属性的时候，应该采用prop而非attr-->
+
+
+		<style type="text/css">
+			button{
+				display: block;
+			}
+		</style>
+
+		<script type="text/javascript">
+			$(function(){
+				$("#b5").click(function(){
+					alert("game属性是："+$("#c").attr("game"));
+				});
+				$("#b6").click(function(){
+					alert("game属性是："+$("#c").prop("game"));
+				});
+				$("#b7").click(function(){
+					alert("checked属性是："+$("#c").attr("checked"));
+				});
+				$("#b8").click(function(){
+					alert("checked属性是："+$("#c").prop("checked"));
+				});
+			})
+		</script>
+
+
+		<button id="b5">通过attr获取自定义属性 game</button>
+		<button id="b6">通过prop获取自定义属性 game</button>
+		<button id="b7">通过attr获取 checked属性</button>
+		<button id="b8">通过prop获取 checked属性</button>
+
+		<br>
+		<br>
+
+		<input type="checkbox" id="c" game="LOL" checked="checked"> 选中的复选框
+
+	</body>
+
+</html>

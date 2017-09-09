@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<!--示例 4 : 鼠标  提问
+		mousedown 表示鼠标按下 
+		mouseup表示鼠标弹起 
+		
+		
+		mousemove表示鼠标进入 
+		mouseenter表示鼠标进入 
+		mouseover表示鼠标进入 
+		
+		
+		mouseleave表示鼠标离开 
+		mouseout表示鼠标离开 
+		
+		
+		
+		
+		进入事件有3个 mousemove mouseenter mouseover 
+		mousemove ：当鼠标进入元素，每移动一下都会被调用 
+		mouseenter ：当鼠标进入元素，调用一下，在其中移动，不调用 
+		mouseover：当鼠标进入元素，调用一下，在其中移动，不调用 
+		
+		
+		mouseenter 和 mouseover的区别 
+		mouseenter: 当鼠标经过其子元素不会被调用 
+		mouseover：当鼠标经过其子元素会被调用 
+		
+		
+		mouseleave 和 mouseout的区别 
+		mouseleave: 当鼠标经过其子元素不会被调用 
+		mouseout：当鼠标经过其子元素会被调用-->
+
+		<script src="jquery-3.2.1.min.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(function() {
+				$("#downup").mousedown(function() {
+					$(this).html("鼠标按下");
+				});
+				$("#downup").mouseup(function() {
+					$(this).html("鼠标弹起");
+				});
+				var moveNumber = 0;
+				var enterNumber = 0;
+				var leaveNumber = 0;
+				var overNumber = 0;
+				var outNumber = 0;
+
+				var enterNumber1 = 0;
+				var overNumber1 = 0;
+
+				var leaveNumber1 = 0;
+				var outNumber1 = 0;
+
+				$("#move").mousemove(function() {
+					$("#move span.number").html(++moveNumber);
+				});
+				$("#enter").mouseenter(function() {
+					$("#enter span.number").html(++enterNumber);
+				});
+				$("#leave").mouseleave(function() {
+					$("#leave span.number").html(++leaveNumber);
+				});
+				$("#over").mouseover(function() {
+					$("#over span.number").html(++overNumber);
+				});
+				$("#out").mouseout(function() {
+					$("#out span.number").html(++outNumber);
+				});
+
+				$("#enter1").mouseenter(function() {
+					$("#enter1 span.number").html(++enterNumber1);
+				});
+				$("#over1").mouseover(function() {
+					$("#over1 span.number").html(++overNumber1);
+				});
+
+				$("#leave1").mouseleave(function() {
+					$("#leave1 span.number").html(++leaveNumber1);
+				});
+
+				$("#out1").mouseout(function() {
+					$("#out1 span.number").html(++outNumber1);
+				});
+
+			});
+		</script>
+
+		<style>
+			div {
+				background-color: pink;
+				margin: 20px;
+				padding: 10px;
+			}
+			
+			.subDiv {
+				background-color: green;
+				margin: 10px;
+			}
+			
+			.parentDiv {
+				background-color: pink;
+				height: 80px;
+			}
+			
+			table {
+				width: 100%;
+				border-collapse: collapse;
+				table-layout: fixed;
+			}
+			
+			td {
+				border: 1.5px solid #d1d1d1;
+				vertical-align: top;
+				padding: 20 0;
+			}
+		</style>
+
+		<table>
+			<tr>
+				<td width="100px">事件</td>
+				<td>效果演示</td>
+			</tr>
+			<tr>
+				<td>mousedown <br /> mouseup
+					<br /></td>
+				<td>
+					<button id="downup" style="margin-left:20px">鼠标按下弹起测试</button> </td>
+			</tr>
+			<tr>
+				<td>mousemove<br /> mouseenter
+					<br /> mouseover
+					<br /> mouseleave
+					<br /> mouseout
+				</td>
+				<td>
+					<div id="move">mousemove 当鼠标进入元素，每移动一下都会被调用 次数<span class="number">0</span></div>
+					<div id="enter">mouseenter 当鼠标进入元素，调用一下，在其中移动，不调用 次数<span class="number">0</span></div>
+					<div id="over">mouseover 当鼠标进入元素，调用一下，在其中移动，不调用 次数<span class="number">0</span></div>
+					<div id="leave">mouseleave 当鼠标离开元素，调用一下 次数<span class="number">0</span></div>
+					<div id="out">mouseout 当鼠标离开元素，调用一下 <span class="number">0</span></div>
+			</tr>
+			<tr>
+				<td>mouseenter<br /> mouseover
+				</td>
+				<td>
+
+					<div id="enter1" class="parentDiv">
+						mouseenter 经过其子元素不会被调用 次数<span class="number">0</span>
+
+						<div class="subDiv">div中的子元素 </div>
+					</div>
+
+					<div id="over1" class="parentDiv">
+						mouseover 经过其子元素会被调用 次数<span class="number">0</span>
+
+						<div class="subDiv">div中的子元素 </div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>mouseleave<br /> mouseout </td>
+				<td>
+					<div id="leave1" class="parentDiv">
+						mouseleave 经过其子元素不会被调用 次数<span class="number">0</span>
+
+						<div class="subDiv">div中的子元素 </div>
+					</div>
+
+					<div id="out1" class="parentDiv">
+
+						mouseout 经过其子元素会被调用 次数<span class="number">0</span>
+
+						<div class="subDiv">div中的子元素 </div>
+					</div>
+				</td>
+			</tr>
+		</table>
+
+	</body>
+
+</html>
