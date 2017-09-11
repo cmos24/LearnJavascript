@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!--示例 1 : 遍历  提问
+		$.each 遍历一个数组 
+		第一个参数是数组 
+		第二个参数是回调函数 i是下标，n是内容-->
+		
+		<script src="jquery-3.2.1.min.js" type="text/javascript">
+			
+		</script>
+		
+		<script type="text/javascript">
+			var a = new Array(1,2,3,4,5);
+			$.each(a, function(i,n) {
+				//document.write( "元素[" + i + "] : " + n + "<br>" );
+				console.log("数组a的元素["+i+"]="+n);
+			});
+			//document.close();
+		</script>
+		
+		<!--示例 2 : 去除重复  提问
+		$.unique() 去掉重复的元素
+		
+		注意 ： 执行unique之前，要先调用sort对数组的内容进行排序。-->
+		
+		<script type="text/javascript">
+			var a2=new Array(5,2,4,2,3,3,1,4,2,5);
+			a.sort();
+			$.unique(a);
+			$.each(a, function(i,n) {
+				console.log("数组a2的元素["+i+"]="+n);
+			});
+		</script>
+		
+		<!--示例 3 : 是否存在$.inArray  提问
+		$.inArray 返回元素在数组中的位置 ，如果不存在返回-1-->
+		
+		<script type="text/javascript">
+			var a3=new Array(1,2,3,4,5,6,7,8);
+			console.log("是否存在？");
+			console.log($.inArray(9,a));
+		</script>
+		
+		
+	</body>
+</html>

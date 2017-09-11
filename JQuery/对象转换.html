@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<!--学习到这里已经使用了大量的JQuery对象的方法，比如show() 、toggle()等等，这些方法都是属于JQuery对象的，而原生的DOM对象不具备这些方法。 
+
+		同样的DOM对象也具备JQuery对象所没有的属性和方法，比如checked属性。 
+		
+		在某些场景下，需要对JQuery对象和DOM节点对象进行互相转换-->
+
+		<!--示例 1 : JQuery转DOM  
+		通过get(0)或者[0] 把JQuery对象转为DOM对象-->
+
+		<script src="jquery-3.2.1.min.js" type="text/javascript"></script>
+
+		<script type="text/javascript">
+			$(function() {
+				$("#b1").click(function() {
+					var div = $("#d");
+					var d = div[0];
+					var s = "JQuery对象是 " + div;
+					s += "\n对应的DOM对象是 " + d;
+					alert(s);
+				});
+			});
+		</script>
+
+		<button id="b1">JQuery对象div转为DOM对象d</button>
+		<br>
+		<br>
+
+		<style>
+			.pink {
+				background-color: pink;
+			}
+		</style>
+
+		<div id="d">
+			Hello JQuery
+		</div>
+
+		<!--示例 2 : DOM转JQuery  提问
+		通过$() 把DOM对象转为JQuery对象-->
+
+		<button id="b2">DOM对象div转为Jquery对象</button>
+		<br />
+		<br />
+		<div id="d2">
+			Hello Jquery
+		</div>
+
+		<script type="text/javascript">
+			$(function() {
+				$("#b2").click(function() {
+					var div = document.getElementById("d2");
+					var d = $(div);
+					var s = "DOM对象是 " + div;
+					s += "\n对应的JQuery对象是 " + d;
+					alert(s);
+				});
+
+			});
+		</script>
+
+	</body>
+
+</html>
